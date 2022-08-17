@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import './GameList.css';
+import styles from './GameList.module.css';
 import axios from 'axios';
-import pict from '../../assets/images/game.png';
 
 export default function GameList() {
 
@@ -22,11 +21,11 @@ export default function GameList() {
 
     return (
         <div>
-            <section className="boxs" onClick={() => window.location = "/DetailGames"}>
+            <section className={styles.boxs} onClick={() => window.location = "/DetailGames"}>
                 {users?.data?.map((user, index) => (
-                    <div key={index} className="box">
-                        <img className="logoJ" src={pict} alt="boy" />
-                        <p className="textJ">{user.name}</p>
+                    <div key={index} className={styles.box}>
+                        <img className={styles.logoJ} src={'/game.png'} alt="boy" />
+                        <p className={styles.textJ}>{user.name}</p>
                     </div>
                 ))}
             </section>
