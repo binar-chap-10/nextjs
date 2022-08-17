@@ -1,0 +1,110 @@
+.body {
+    background-color: #9C835F;
+}
+.header{
+    display: flex;
+    margin: 0rem 2rem 0.5rem 2rem;
+}
+.arrow-back{
+    font-size: 3rem;
+    font-weight: bold;
+    align-self: center;
+    color: red;
+}
+.brand{
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+}
+.brand h1{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: yellowgreen;
+    font-weight: bold;
+}
+.slide1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.user-choice {
+    text-align: center;
+}
+
+.player-name{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.vs {
+    display: grid;
+    align-self: center;
+}
+
+.action {
+    color: white;
+    background-color: rgb(139, 80, 151);
+    font-size: 2.5rem;
+    transform: rotate(-25deg);
+}
+
+.vs h1{
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: red;
+}
+.refresh {
+    justify-self: center;
+    width: 4rem;
+    transform: translatey(350%);
+}
+
+.com-choice {
+    text-align: center;
+}
+
+.player-com{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+}
+
+.com{
+    display: flex;
+    flex-direction: column;
+}
+.activee{
+    background-color: rgb(183, 212, 215) !important;
+}
+
+.tools{
+    width: 50%;
+}
+
+.user button, .com button{
+    width: 13.9375rem;
+    height: 12.75rem;
+    background-color: Transparent;
+    border-color: transparent;
+    border-radius: 1rem;
+}
+.user button img, .com button img{
+    transition: transform .2s ease-in;
+    width: 50%;
+}
+.user button img:hover {
+    transform: rotate(15deg);
+}
+
+/* 
+ Sudah Auto RESPONSIVE Karena Menggunakan Grid Template Columns 
+ RESPONSIVE TABLET 
+ RESPONSIVE MOBILE 
+ */

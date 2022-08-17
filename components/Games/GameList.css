@@ -1,0 +1,36 @@
+.boxs {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.boxs div {
+    height: 200px;
+    background: tomato;
+    color: white;
+    padding: 30px;
+    border-radius: 14px;
+    min-width: 250px;
+    box-shadow: 12px 0px 32px -12px black;
+    margin-left: 10px;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+    width: 15rem;
+}
+
+.boxs div:hover {
+    transform: translateY(16px) rotate(3deg);
+}
+
+.logoJ {
+    height: 90%;
+    width: 100%;
+}
+
+.textJ {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: center;
+}

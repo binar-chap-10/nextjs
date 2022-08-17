@@ -1,0 +1,90 @@
+.background-register{
+    min-height: 100vh;
+    background-image: url('./images/main-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(2px);
+    height: 100%;
+    
+}
+.input{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+.inputContainer{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    background: #FFB343;
+    padding: 3vw;
+    border-radius: 10px;
+    
+    
+}
+.inputBox{
+    position: relative;
+    width: 250px;
+}
+.inputBox input{
+    width: 100%;
+    padding: 10px;
+    border: 1.5px solid black;
+    background: #FFB343;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+   
+}
+.inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: black;
+    transition: 0.5s;
+    font-weight: 600;
+}
+.inputBox:nth-child(odd) input:valid ~ span
+,.inputBox:nth-child(odd) input:focus ~ span{
+color: black;
+transform: translateX(10px) translateY(-7px);
+font-size: 0.65em;
+padding: 0 10px;
+background-color: #FFB343;
+border-left: 1px solid black;
+border-right: 1px solid black;
+
+}
+.inputBox:nth-child(even) input:valid ~ span
+,.inputBox:nth-child(even) input:focus ~ span{
+color:#FFB343;
+transform: translateX(10px) translateY(-7px);
+font-size: 0.65em;
+padding: 0 10px;
+background-color: black;
+border: none;
+border-radius: 4px;
+}
+.buttonLogin{
+    border: solid black 2px;
+    width: 100%;
+    background-color: #FFB343;
+    color: black;
+    border-radius: 8px;
+    padding: 0.25em;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.buttonLogin:hover{
+    background-color: black;
+    color: #FFB343;
+}

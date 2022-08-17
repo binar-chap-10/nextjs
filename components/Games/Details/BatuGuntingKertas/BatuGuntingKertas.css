@@ -1,0 +1,86 @@
+.containerBatu {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.row{
+    padding-top: 3%;
+}
+
+.kiri {
+    padding: 0em;
+}
+
+.gamedetails_texth3 {
+    font-family: none;
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+}
+
+.gamedetails_textp {
+    color: black;
+    font-family: none;
+    font-size: 1.2rem !important;
+    max-width: 85%;
+}
+
+.bungkus {
+    display: grid;
+    width: 25%;
+}
+
+.high_p {
+    text-align: center;
+    color: black;
+    font-family: none;
+    font-size: 1.4rem !important;
+}
+
+.b_play {
+    margin-top: 10px;
+}
+
+.play {
+    width: 50%;
+    justify-self: center;
+}
+
+.kanan{
+    border-style:solid;
+    border-color:black;
+    border-radius: 3%;
+    background-color: antiquewhite;
+}
+
+.bkg{
+    height: 100%;
+    max-width:100% !important;
+    border-radius: 20px;
+    padding: 10px 5px 10px 5px;
+}
+
+.table_leaderboard{
+    border: black;
+    align-content: center;
+}
+
+.tr,.th,.td{
+    size: 20px;  
+} 
+
+.th{
+    padding: 3px 3px 3px 3px;
+    align-content: center;
+    color:black;
+    text-align: center;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.td{
+    text-align: center;
+    font-style: italic;
+    color: black;
+    padding: 3px 3px 3px 3px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}

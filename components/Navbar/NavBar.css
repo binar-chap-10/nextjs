@@ -1,0 +1,38 @@
+.navbar{
+    opacity: 0.8;
+   position: absolute;
+   top: 0;
+   width: 100%;
+   background-color: black;
+   padding: 5px 0;
+   z-index: 1;
+}
+.navbar-brand{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin:  0 6rem;
+    
+}
+.navbar-brand:hover,.nav-link:hover{
+    color: rgb(197, 188, 188);
+}
+.navbar-brand, .nav-item a{
+    color: white;
+}
+.left-navbar{
+    margin-left: 2rem;
+}
+.left-navbar .nav-item{
+    padding: 0.5rem 2rem;
+}
+.right-navbar{
+    margin-right: 5rem;
+}
+.right-navbar .nav-item{
+    padding: 0.5rem 1rem;
+}
+.nav-link{
+    font-weight: bold;
+    font-size: 12px;
+    font-family: 'Open Sans',sans-serif;
+}
