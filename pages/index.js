@@ -12,7 +12,7 @@ function Home(props) {
   useEffect(() => {
     const token = window.sessionStorage.getItem("accessToken");
     axios
-      .get("https://backend9-binar.herokuapp.com/api/login", {
+      .get("http://localhost:4000/api/login", {
         headers: { authorization: token },
       })
       .then((res) => {

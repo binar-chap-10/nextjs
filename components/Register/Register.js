@@ -11,7 +11,7 @@ function Register(){
            document.querySelector(".error").innerHTML="Please Fill The Require Field"
         }else{
             document.querySelector(".error").innerHTML=""
-            axios.post('https://backend9-binar.herokuapp.com/api/register',{username,password,fullname,email})
+            axios.post('http://localhost:4000/api/register',{username,password,fullname,email})
             .then(res=>{
               
               console.log(res)
