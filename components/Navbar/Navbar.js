@@ -1,17 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-function NavBar() {
-  const [currentUser, setUser] = useState({ status: "", fullname: "" });
-  useEffect(() => {
-    const token = sessionStorage.getItem("accessToken");
-    console.log(token);
-    axios.get("https://backend9-binar.herokuapp.com/api/login", {
-        headers: { authorization: token },
-      })
-      .then((res) => {
-        setUser({ loggedIn: res.data.authorized, fullname: res.data.fullname });
-      });
-  }, []);
+
+function NavBar({data}) {
+  const currentUser = data.data
   return (
     <>
       <nav className="navbar navbar-expand-lg ">
