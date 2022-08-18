@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '../Navbar/Navbar';
-import "./UpdateProfile.css"
+import "./UpdateProfile.module.css"
 import axios from 'axios';
-import { useNavigate } from 'react-router';
 
 
 
 function UpdateProfile(){
-    const id = sessionStorage.getItem("id")
+    // const id = sessionStorage.getItem("id")
     const[currentUser,setCurrentUser]=useState("")
 
     const[email,setEmail]= useState("")
@@ -25,16 +24,16 @@ function UpdateProfile(){
         })
       },[])*/
 
-    const navigation = useNavigate();
+
 
     let handleSubmit=()=>{
-        if(email===""||fullname===""||bio===""||city===""||social_media_url===""){
+        if(email===""||fullname===""||bio===""){
         document.querySelector(".error").innerHTML="Please Fill the Form"
         }else{
             const id= sessionStorage.getItem("id")
-            const url = "https://backend9-binar.herokuapp.com/api/users/"+id
+            const url = "http://localhost:4000/api/users/"+id
             const token = sessionStorage.getItem("accessToken")
-            axios.put(url,{email,fullname,bio,city,social_media_url,password},{headers:{authorization:token}})
+            axios.put(url,{email,fullname,bio,password},{headers:{authorization:token}})
        .then(res=>{
             alert(res.data.message)
             window.location.replace("/Profile")
@@ -52,15 +51,15 @@ function UpdateProfile(){
     return (
     <>
     {/* <NavBar /> */}
-    <div className='main'>
-    <div className='row container-height' >
-        <div className='col-lg-6 col-md-6 m-auto' >
-            <div className='container' >
-                <h1 className='text-center'>Update Profile</h1>
+    <div className="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+    <div className= "w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto" >
+        <div className='form w-100' >
+            <div className='text-center mb-10' >
+                <h1 className='text-dark mb-3' style={{ marginTop: "40px" }}>Update Profile</h1>
                     <form >
                         <fieldset>
-                            <div className='form-group' >
-                                <label htmlFor='exampleInputEmail'>Email</label>
+                            <div className='fv-row mb-10' >
+                                <label className="form-label fs-6 fw-bolder text-dark" htmlFor='exampleInputEmail'>Email</label>
                                 <input
                                     type="email"
                                     name='email'
@@ -83,8 +82,8 @@ function UpdateProfile(){
                                     onChange={(value)=>setPassword(value.target.value)}
                                 />
                             </div>
-                            <div className='form-group'>
-                                <label htmlFor='exampleInputName' >Fullname</label>
+                            <div className='fv-row mb-10'>
+                                <label className="form-label fs-6 fw-bolder text-dark" htmlFor='exampleInputName' >Fullname</label>
                                 <input
                                     type="text"
                                     name='fullname'
@@ -107,7 +106,9 @@ function UpdateProfile(){
                                     onChange={(value)=>setBio(value.target.value)}
                                 />
                             </div>
-                            <div className='form-group' >
+
+
+                            {/* <div className='form-group' >
                                 <label htmlFor='exampleInputCity'>City</label>
                                 <input
                                     type="text"
@@ -130,7 +131,9 @@ function UpdateProfile(){
                                     placeholder={currentUser.social_media_url}
                                     onChange={(value)=>setSocial_Media_Url(value.target.value)}
                                 />
-                            </div>
+                            </div> */}
+
+
                             <br />
                             <h5 style={{color:"white"}}  className="error"></h5>
                            

@@ -11,6 +11,8 @@ import NavBar from '../components/Navbar/Navbar';
 import '../components/Games/GameList.module.css';
 import '../components/Games/Details/BatuGuntingKertas/BatuGuntingKertas.module.css';
 import '../components/Games/BatuGuntingKertas/Index.module.css';
+import '../components/UpdateProfile/UpdateProfile.module.css'
+
 function MyApp({ Component, pageProps = store.getState()}) {
  
   return <>
