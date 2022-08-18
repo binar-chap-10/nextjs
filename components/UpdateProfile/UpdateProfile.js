@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '../Navbar/Navbar';
-import "./UpdateProfile.css"
+import "./UpdateProfile.module.css"
 import axios from 'axios';
-import { useNavigate } from 'react-router';
 
 
 
 function UpdateProfile(){
-    const id = sessionStorage.getItem("id")
+    // const id = sessionStorage.getItem("id")
     const[currentUser,setCurrentUser]=useState("")
 
     const[email,setEmail]= useState("")
@@ -25,16 +24,16 @@ function UpdateProfile(){
         })
       },[])*/
 
-    const navigation = useNavigate();
+
 
     let handleSubmit=()=>{
-        if(email===""||fullname===""||bio===""||city===""||social_media_url===""){
+        if(email===""||fullname===""||bio===""){
         document.querySelector(".error").innerHTML="Please Fill the Form"
         }else{
             const id= sessionStorage.getItem("id")
-            const url = "https://backend9-binar.herokuapp.com/api/users/"+id
+            const url = "http://localhost:4000/api/users/"+id
             const token = sessionStorage.getItem("accessToken")
-            axios.put(url,{email,fullname,bio,city,social_media_url,password},{headers:{authorization:token}})
+            axios.put(url,{email,fullname,bio,password},{headers:{authorization:token}})
        .then(res=>{
             alert(res.data.message)
             window.location.replace("/Profile")
@@ -107,7 +106,7 @@ function UpdateProfile(){
                                     onChange={(value)=>setBio(value.target.value)}
                                 />
                             </div>
-                            <div className='form-group' >
+                            {/* <div className='form-group' >
                                 <label htmlFor='exampleInputCity'>City</label>
                                 <input
                                     type="text"
@@ -130,7 +129,7 @@ function UpdateProfile(){
                                     placeholder={currentUser.social_media_url}
                                     onChange={(value)=>setSocial_Media_Url(value.target.value)}
                                 />
-                            </div>
+                            </div> */}
                             <br />
                             <h5 style={{color:"white"}}  className="error"></h5>
                            
