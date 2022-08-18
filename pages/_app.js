@@ -7,8 +7,9 @@ import "../components/LandingPage/LandingPage.css"
 import  "../components/Navbar/NavBar.css";
 import '../components/Login/Login.css'
 import '../components/Register/Register.css'
+import "../components/Profile/Profile.css"
 import NavBar from '../components/Navbar/Navbar';
-function MyApp({ Component, pageProps = store.getState()}) {
+function MyApp({ Component, pageProps}) {
  
   return <>
   <Head>
@@ -20,7 +21,9 @@ function MyApp({ Component, pageProps = store.getState()}) {
       <Script src="https://kit.fontawesome.com/14775e3987.js" crossorigin="anonymous"></Script>  
     </Head>
     <Provider store={store}>
-    <Component {...store.getState()}/>
+      
+    <Component />
+    
  
   </Provider>
   </>

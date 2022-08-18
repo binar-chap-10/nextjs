@@ -32,7 +32,7 @@ export default function BatuGuntingKertas() {
 
     return (
         <div className="containerBatu">
-            <div className="row">
+           <div className={`${styles.rowa} row`}>
                 <div className="col-xl-6 mb-5 kiri">
                     {games?.data?.map((game, index) => (
                         <div key={index}>

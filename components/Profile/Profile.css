@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:wght@500&family=Titillium+Web:wght@300;700&display=swap');
-
+.back-nav{
+    position: absolute;
+   color: #FFB343;
+    top: 5%;
+    left: 5%;
+    font-size: 2.5rem
+}
 .background{
     min-height: 100vh;
     background-image: url('./images/main-bg.jpg');

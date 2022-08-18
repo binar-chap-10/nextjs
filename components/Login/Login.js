@@ -25,7 +25,7 @@ function Login(){
         })
         .catch(err=>{
           console.log(err)
-          document.querySelector(".error").innerHTML=err.response.data.message
+          document.querySelector(".error").innerHTML=err?.response.data.message
         })
     }
     

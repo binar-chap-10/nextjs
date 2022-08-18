@@ -1,32 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from "../Navbar/Navbar";
-import "./Profile.css"
-import { useNavigate } from 'react-router';
+import { useNavigate} from 'react-router';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
 const Profile = ()=> {
-  const id = sessionStorage.getItem("id")
+ 
   const[currentUser,setCurrentUser]=useState("")
   useEffect(()=>{
-    axios.get('https://backend9-binar.herokuapp.com/api/users/'+id,).then(res=>{
+    const id = window.sessionStorage.getItem("id")
+    axios.get('http://localhost:4000/api/users/'+id,).then(res=>{
       setCurrentUser(res.data.data)
-
       console.log(currentUser.bio)
     })
   },[])
-  const navigation = useNavigate();
-
-
   function goToUpdate() {
-    navigation("/Update")
+  window.location = "/update"
     // navigation("/about")
 }
 
   return (
     <>
-    <NavBar/>
+    
     <div className='background'>
+      <a href='/'><h4 className='back-nav' href="/">{"<"}</h4></a>
         <div className='profile-container'>
           <div className='user-data'>
           <div>

@@ -1,4 +1,3 @@
-import { Provider } from "react-redux";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { setUser } from "../redux/actions/actions";
@@ -16,13 +15,13 @@ function Home(props) {
         headers: { authorization: token },
       })
       .then((res) => {
-       props.setUser({
+       store.dispatch(setUser({
           loggedIn: res.data.authorized,
           fullname: res.data.fullname,
-        });
+        }));
       });
   }, []);
-  console.log(props.data)
+  console.log(props)
   return (
     
       <>
