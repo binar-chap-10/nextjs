@@ -1,4 +1,4 @@
-import List from "../components/Games/GameList";
+import Profile from "../components/Profile/Profile";
 import NavBar from "../components/Navbar/Navbar";
 
 import { connect } from "react-redux";
@@ -12,12 +12,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-function ListPage(props) {
+function ProfilePage(props) {
   return (
     <>
       <NavBar data={props} />
-      <List data={props} />
+      <Profile data={props} />
     </>
   );
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ListPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);

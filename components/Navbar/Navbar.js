@@ -1,8 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
-function NavBar({data}) {
-  const currentUser = data.data
+function NavBar({ data }) {
+  const currentUser = data.data;
+  function refreshPage() {
+    window.location.reload(false);
+    sessionStorage.removeItem("accessToken");
+  }
+
   return (
     <>
       <nav className="navbar navbar-expand-lg ">
@@ -23,56 +29,54 @@ function NavBar({data}) {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mr-auto left-navbar">
             <li className="nav-item active">
-              <a className="nav-link" href="/">
-                HOME<span className="sr-only">(current)</span>
-              </a>
+              <Link href="/">
+                <a className="nav-link">
+                  HOME<span className="sr-only">(current)</span>
+                </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/List">
-                GAME LIST
-              </a>
+              <Link href="/List">
+                <a className="nav-link">GAME LIST</a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                CONTACT
-              </a>
+              <Link href="/">
+                <a className="nav-link">CONTACT</a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                ABOUT ME
-              </a>
+              <Link href="/">
+                <a className="nav-link">ABOUT ME</a>
+              </Link>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto right-navbar">
             <li className="nav-item active">
-              <a
-                className="nav-link"
-                href={currentUser?.loggedIn ? "/profile" : "/Register"}
-              >
-                {currentUser?.loggedIn
-                  ? currentUser?.fullname.toUpperCase()
-                  : "SIGNUP"}
-                <span className="sr-only">(current)</span>
-              </a>
+              <Link href={currentUser?.loggedIn ? "/Profile" : "/Register"}>
+                <a className="nav-link">
+                  {currentUser?.loggedIn
+                    ? currentUser?.fullname.toUpperCase()
+                    : "SIGNUP"}
+                  <span className="sr-only">(current)</span>
+                </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a
-                className="nav-link"
-                onClick={
-                  currentUser?.loggedIn
-                    ? () => /*console.log("LOGOUT")*/ {
-                        sessionStorage.removeItem("accessToken");
-                        window.location = "/";
-                      }
-                    : () => {
-                        console.log("LOGIN");
-                        window.location = "/Login";
-                      }
-                }
-                href="#"
-              >
-                {currentUser?.loggedIn ? "LOGOUT" : "LOGIN"}
-              </a>
+            <li className="nav-item active">
+              {currentUser?.loggedIn ? (
+                <a
+                  type="button"
+                  style={{ color: "white" }}
+                  className="nav-link"
+                  onClick={refreshPage}
+                >
+                  LOGOUT
+                </a>
+              ) : (
+                <Link href={"/Login"}>
+                  <a className="nav-link">LOGIN</a>
+                </Link>
+              )}
             </li>
           </ul>
         </div>
