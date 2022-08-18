@@ -7,8 +7,8 @@ import store from "../redux";
 import NavBar from "../components/Navbar/Navbar";
 import LandingPage from "../components/LandingPage/LandingPage";
 import styles from "../styles/Home.module.css";
+
 function Home(props) {
-  
   useEffect(() => {
     const token = window.sessionStorage.getItem("accessToken");
     axios
@@ -16,21 +16,18 @@ function Home(props) {
         headers: { authorization: token },
       })
       .then((res) => {
-       props.setUser({
+        props.setUser({
           loggedIn: res.data.authorized,
           fullname: res.data.fullname,
         });
       });
   }, []);
-  console.log(props.data)
+  console.log(props.data);
   return (
-    
-      <>
-        <NavBar data={props}/>
-        <LandingPage data={props}/>
-        </>
-     
-
+    <>
+      <NavBar data={props} />
+      <LandingPage data={props} />
+    </>
   );
 }
 const mapStateToProps = (state) => ({
