@@ -8,6 +8,9 @@ import  "../components/Navbar/NavBar.css";
 import '../components/Login/Login.css'
 import '../components/Register/Register.css'
 import NavBar from '../components/Navbar/Navbar';
+import '../components/Games/GameList.module.css';
+import '../components/Games/Details/BatuGuntingKertas/BatuGuntingKertas.module.css';
+import '../components/Games/BatuGuntingKertas/Index.module.css';
 function MyApp({ Component, pageProps = store.getState()}) {
  
   return <>

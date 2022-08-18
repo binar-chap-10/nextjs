@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './Index.css';
-import logo from '../../../assets/images/logo.png';
-import kembali from '../../../assets/images/refresh.png';
-import rock from '../../../assets/images/batu.png';
-import scissor from '../../../assets/images/gunting.png';
-import paper from '../../../assets/images/kertas.png';
+import styles from './Index.module.css';
 import axios from "axios";
 
 export default function Index() {
@@ -13,8 +8,15 @@ export default function Index() {
     const [cscore, setCscore] = useState(0);
     const [status, setStatus] = useState('');
     const [comstyle, setComstyle] = useState('');
+    const [userId, setUserId] = useState('');
 
-    const userid = sessionStorage.getItem("id");
+    useEffect(() => {
+        if (window) {
+            const id = sessionStorage.getItem("id");
+            setUserId(parseInt(id));
+            // console.log(userid);
+        }
+    }, []);
 
     const rockIcon = "rock";
     const paperIcon = "paper";
@@ -62,7 +64,7 @@ export default function Index() {
 
     const postGames = async () => {
         try {
-            let response = await axios.post("http://localhost:4000/api/gameplay/add", { gameid: 1, score: pscore, userid })
+            let response = await axios.post("http://localhost:4000/api/gameplay/add", { gameid: 1, score: pscore, userid: userId })
             console.log(response.data);
         } catch (e) {
             console.log(e.message);
@@ -82,48 +84,48 @@ export default function Index() {
     }, [action])
 
     return (
-        <div className="body">
-            <header className="header">
-                <div className="arrow-back" onClick={() => window.location = "/DetailGames"}>
+        <div className={styles.body}>
+            <header className={styles.header}>
+                <div className={styles['arrow-back']} onClick={() => window.location = "/DetailGames"}>
                     &lt;
                 </div>
-                <div className="brand">
-                    <img className="logoI" src={logo} alt="logo" />
+                <div className={styles.brand}>
+                    <img className="logoI" src={'/logo.png'} alt="logo" />
                     <h1>ROCK PAPER SCISSORS</h1>
                 </div>
             </header>
-            <section className="slide1">
-                <div className="user-choice">
-                    <h1 className="player-name">PLAYER 1</h1>
+            <section className={styles.slide1}>
+                <div className={styles['user-choice']}>
+                    <h1 className={styles['player-name']}>PLAYER 1</h1>
                     <h1>{pscore}</h1>
-                    <div className="user">
-                        <button disabled={action} onClick={() => setAction('rock')} className={(action === 'rock') && 'activee'}>
-                            <img className="rock" src={rock} alt="batu" />
+                    <div className={styles.user}>
+                        <button disabled={action} onClick={() => setAction('rock')} className={(action === 'rock') && styles.activee}>
+                            <img className={styles.rock} src={'/batu.png'} alt="batu" />
                         </button>
-                        <button disabled={action} onClick={() => setAction('paper')} className={(action === 'paper') && 'activee'}>
-                            <img className="paper" src={paper} alt="kertas" />
+                        <button disabled={action} onClick={() => setAction('paper')} className={(action === 'paper') && styles.activee}>
+                            <img className={styles.paper} src={'gunting.png'} alt="kertas" />
                         </button>
-                        <button disabled={action} onClick={() => setAction('scissors')} className={(action === 'scissors') && 'activee'}>
-                            <img className="scissors" src={scissor} alt="gunting" />
+                        <button disabled={action} onClick={() => setAction('scissors')} className={(action === 'scissors') && styles.activee}>
+                            <img className={styles.scissors} src={'/kertas.png'} alt="gunting" />
                         </button>
                     </div>
                 </div>
-                <div className="vs">
+                <div className={styles.vs}>
                     <h1 className={status !== 'VS' && 'action'}>{status}</h1>
-                    <img onClick={() => clickStyle()} className="refresh" src={kembali} alt="batu" />
+                    <img onClick={() => clickStyle()} className={styles.refresh} src={'/refresh.png'} alt="batu" />
                 </div>
-                <div className="com-choice">
-                    <h1 className="player-com">COM</h1>
+                <div className={styles['com-choice']}>
+                    <h1 className={styles['player-com']}>COM</h1>
                     <h1>{cscore}</h1>
-                    <div className="com">
-                        <button className={(comstyle === rockIcon) && 'activee'}>
-                            <img className="rock" src={rock} alt="batu" />
+                    <div className={styles.com}>
+                        <button className={(comstyle === rockIcon) && styles.activee}>
+                            <img className={styles.rock} src={'/batu.png'} alt="batu" />
                         </button>
-                        <button className={(comstyle === paperIcon) && 'activee'}>
-                            <img className="paper" src={paper} alt="kertas" />
+                        <button className={(comstyle === paperIcon) && styles.activee}>
+                            <img className={styles.paper} src={'gunting.png'} alt="kertas" />
                         </button>
-                        <button className={(comstyle === scissorsIcon) && 'activee'}>
-                            <img class="scissors" src={scissor} alt="gunting" />
+                        <button className={(comstyle === scissorsIcon) && styles.activee}>
+                            <img class={styles.scissors} src={'/kertas.png'} alt="gunting" />
                         </button>
                     </div>
                 </div>
