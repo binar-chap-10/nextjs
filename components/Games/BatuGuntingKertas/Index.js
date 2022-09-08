@@ -116,7 +116,7 @@ export default function Index() {
               onClick={() => setAction("paper")}
               className={action === "paper" && styles.activee}
             >
-              <img className={styles.paper} src={"gunting.png"} alt="kertas" />
+              <img className={styles.paper} src={"kertas.png"} alt="kertas" />
             </button>
             <button
               disabled={action}
@@ -125,14 +125,14 @@ export default function Index() {
             >
               <img
                 className={styles.scissors}
-                src={"/kertas.png"}
+                src={"/gunting.png"}
                 alt="gunting"
               />
             </button>
           </div>
         </div>
         <div className={styles.vs}>
-          <h1 className={status !== "VS" && "action"}>{status}</h1>
+          <h1 className={status !== "VS" && styles.action}>{status}</h1>
           <img
             onClick={() => clickStyle()}
             className={styles.refresh}
@@ -148,10 +148,10 @@ export default function Index() {
               <img className={styles.rock} src={"/batu.png"} alt="batu" />
             </button>
             <button className={comstyle === paperIcon && styles.activee}>
-              <img className={styles.paper} src={"gunting.png"} alt="kertas" />
+              <img className={styles.paper} src={"kertas.png"} alt="kertas" />
             </button>
             <button className={comstyle === scissorsIcon && styles.activee}>
-              <img class={styles.scissors} src={"/kertas.png"} alt="gunting" />
+              <img class={styles.scissors} src={"/gunting.png"} alt="gunting" />
             </button>
           </div>
         </div>
