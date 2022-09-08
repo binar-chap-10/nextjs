@@ -9,20 +9,21 @@ export default function BatuGuntingKertas() {
   const [score, setScore] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:4000/api/users/score").then((res) => {
-      console.log(res.data.scores);
+      // console.log(res.data.scores);
       setScore(res.data.scores);
     });
   }, []);
 
-  const newScore = score.sort(
+  const newScore = score.filter(i => i.total_score).sort(
     (a, b) => parseFloat(b.total_score) - parseFloat(a.total_score)
   );
+
   const items = newScore
     .slice(0, 3)
     .map((i, idx) => ({ no: idx + 1, nama: i.fullname, score: i.total_score }));
 
   const [games, setGames] = useState([]);
-  console.log(games);
+  // console.log(games);
   const getGames = async () => {
     try {
       let response = await axios.get(`http://localhost:4000/api/game`);
@@ -31,7 +32,9 @@ export default function BatuGuntingKertas() {
       console.log(e.message);
     }
   };
-  console.log(score);
+  // console.log(score);
+  // console.log(newScore);
+
   useEffect(() => {
     getGames();
   }, []);

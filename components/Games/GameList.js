@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function GameList() {
   const [users, setUsers] = useState([]);
-  console.log(users);
+  // console.log(users);
   const getUsers = async () => {
     try {
       let response = await axios.get(`http://localhost:4000/api/game`);
